@@ -1,5 +1,6 @@
 {
     "board": "adafruit:samd:adafruit_feather_m0",
     "port": "COM10",
-    "programmer": "USBtinyISP"
+    "programmer": "USBtinyISP",
+    "sketch": "../Outfit_2_FINAL_BUTNOTREALLY/Outfit_2_FINAL_BUTNOTREALLY.ino"
 }
