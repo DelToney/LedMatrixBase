@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include <FastLED.h>
 #include <Wire.h>
+#include "FileRead.h"
+#include "RainbowSlide.h"
 
 
 #define NUM_LEDS 144
@@ -9,7 +11,8 @@
 #define ROW_LENGTH 45
 #define LED_STRING_1 10
 
-CRGB ledString[NUM_LEDS];
+static CRGB ledString[NUM_LEDS];
+
 
 //this holds the template for the LED Matrix; 
 int ledTemplate[NUM_ROWS][ROW_LENGTH] = {
@@ -26,21 +29,29 @@ CRGB ledBuffer[NUM_LEDS/NUM_ROWS][ROW_LENGTH];
 
 
 void setup() {
+  Serial.begin(9600);
+  // setupFileReader();
   // put your setup code here, to run once:
   FastLED.addLeds<NEOPIXEL, LED_STRING_1>(ledString, NUM_LEDS);
-  Serial.begin(9600);
+
+  for (int led = 0; led <= NUM_LEDS; led++) {
+    ledString[led].setRGB(0, 0, 0);
+  }
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  //put your main code here, to run repeatedly:
   for (int led = 0; led <= NUM_LEDS; led++) {
-    ledString[led].setRGB(210, 25, 115);
-    Serial.print(led + " ");
+    // ledString[led].setRGB(210, 25, 115);
+    // Serial.print(led + " ");
   }
+
+  colorWipe(CRGB(25, 47, 160), 200, ledString, sizeof(ledString)/sizeof(CRGB));
+
   Serial.println();
-  FastLED.show();
 }
 
-CRGB ToXY(CRGB led_string[]) {
+CRGB updateLEDStrip(CRGB led_string[]) {
 
 }
