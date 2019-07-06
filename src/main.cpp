@@ -1,7 +1,9 @@
 
+#include "Common.h"
 #include "RainbowSlide.h"
 #include "RainbowSpectrum.h"
-#include "Common.h"
+#include "GradientPattern.cpp"
+
 #define LED_STRING_1 10
 
 
@@ -47,7 +49,6 @@ void InitializeMatrix() {
 }
 
 void PrintString() {
-  int ledIndex = 0;
   for(int i = 0; i < NUM_LEDS; i++) {
     Serial.printf("%i ", ledString[i].g);
   }
@@ -65,6 +66,8 @@ void PrintMatrix() {
   }
 }
 
+
+// reads the ledMatrixLayout for which led in the LED strip it intends to light up. 
 void UpdateLEDStrip() {
   for(int i = 0; i < NUM_ROWS; i++) {
     for (int j = 0; j < ROW_LENGTH; j++) {

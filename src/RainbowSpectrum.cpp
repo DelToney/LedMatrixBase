@@ -1,4 +1,4 @@
-#include <RainbowSpectrum.h>
+#include "RainbowSpectrum.h"
 
 // Fill the dots one after the other with a color
 void SpectrumStatic(cLEDMatrix<ROW_LENGTH, NUM_ROWS, HORIZONTAL_MATRIX> ledMatrix)  {
